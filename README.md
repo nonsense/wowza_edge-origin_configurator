@@ -1,11 +1,6 @@
 Wowza Edge-Origin architecture configurator
 ===========================================
 
-Wowza Edge-Origin configurator
-
-Introduction
-------------
-
 The following scripts configure Amazon EC2 instances, with pre-configured Wowza Media Server 3.5.2 for an edge-origin nDVR streaming setup.
 
 The scripts perform the following configurations on the instances:
