@@ -31,7 +31,7 @@ sed -i "153a\
 sed -i "156a\
 <Property> \
     <Name>secureurlparams.publish<\/Name> \
-    <Value>hadassim.password<\/Value> \
+    <Value>$2.password<\/Value> \
 <\/Property>" Application.xml
 
 #cd /opt/script

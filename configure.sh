@@ -1,17 +1,20 @@
 #!/bin/bash
 
-echo -e "Please enter origin IP (46.332.197.78): "
+echo -e "Enter origin IP (46.332.197.78): "
 read origin_ip
 
-echo -e "Please enter pem key (file.pem): "
+echo -e "Enter pem key (file.pem): "
 echo -e "Note: File must be in current directory, with chmod 600!"
 read pem_key
 
-echo -e "Please enter Wowza license key (lickey): "
+echo -e "Enter a password for secure streaming:"
+read password
+
+echo -e "Enter Wowza license key (lickey): "
 read license_key
 
 edge=()
-while IFS= read -r -p "Please enter edge IP (end with an empty line): " line;
+while IFS= read -r -p "Enter edge IP (end with an empty line): " line;
 do
   [[ $line ]] || break  # break if line is empty
   edge+=("$line")
@@ -37,7 +40,7 @@ then
   scp -i $pem_key -r ./ ec2-user@$origin_ip:/opt/script/
 
   ssh -t -i ./$pem_key ec2-user@$origin_ip "chmod +x /opt/script/*"
-  ssh -t -i ./$pem_key ec2-user@$origin_ip "cd /opt/script; sudo ./multiple_origin_3.5.2.sh $license_key"
+  ssh -t -i ./$pem_key ec2-user@$origin_ip "cd /opt/script; sudo ./multiple_origin_3.5.2.sh $license_key $password"
   ssh -t -i ./$pem_key ec2-user@$origin_ip "cd /opt/script; sudo ./load_balancer_listener_3.5.2.sh "
 fi
 
