@@ -24,3 +24,7 @@ Usage
     ./configure.sh
 
 The general use case of the script is to initially configure an origin server, as well as a number of edge servers. During a live video streaming of an event, an operator could add more edge servers if necessary, to reduce the load on the rest of the edge servers.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/nonsense/wowza_edge-origin_configurator/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
